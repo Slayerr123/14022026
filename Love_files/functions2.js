@@ -33,8 +33,8 @@ $(window).resize(function () {
 })(jQuery);
 
 function timeElapse(date) {
-    var current = new Date();
-    current.setHours(current.getHours() - 1);
+    var current = new Date(); // ← CORREGIDO
+	current.setHours(current.getHours() - 1);
     var seconds = (current.getTime() - date.getTime()) / 1000;
 
     var days = Math.floor(seconds / (3600 * 24));
@@ -56,11 +56,3 @@ function timeElapse(date) {
         "<span class=\"digit\">" + seconds + "</span> segundos";
     $("#clock").html(result);
 }
-
-/* 👇 AÑADIDO: Fecha 27 Noviembre 2025 */
-var startDate = new Date(2025, 10, 27); 
-// Mes 10 = Noviembre (JavaScript empieza en 0)
-
-setInterval(function () {
-    timeElapse(startDate);
-}, 1000);
